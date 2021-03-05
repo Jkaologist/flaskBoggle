@@ -23,6 +23,8 @@ class BoggleAppTestCase(TestCase):
 
         with self.client as client:
             response = client.get('/')
+            html = response.get_data(as_text = True)
+            self.assertIn("<table>", html)
             ...
             # test that you're getting a template
 
